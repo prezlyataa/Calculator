@@ -1,0 +1,46 @@
+@import "reset.css";
+@import "preloader.css";
+
+body {
+    height: 100%;
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calc {
+    width: 400px;
+    height: 100px;
+    background-color: #333;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -50px;
+}
+
+.input_field {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 26px;
+    text-align: right;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.input_field:focus {
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
