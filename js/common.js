@@ -49,11 +49,7 @@ buttons.onclick = function(e) {
 /*** function that execute values from field ***/
 
 function Equal() {
-    if(eval(this.input_field.value) === 'undefined') {
-        this.input_field.value = '';
-    } else {
-        this.input_field.value = eval(this.input_field.value);
-    }
+    this.input_field.value = eval(this.input_field.value);
 }
 
 equal.onclick = function() {
@@ -76,3 +72,23 @@ document.onkeydown = function (e) {
     }
     e.preventDefault();
 };
+
+
+
+/*** validation input field only for numbers and operators' ***/
+
+function validation() {
+    var x = this.input_field.value;
+    var regexNumbers = /[0-9]+$/;
+    var regexSigns = new RegExp(/[\+\-\/\*\(\)\.]+$/g);
+
+    if(x.match(regexSigns) || x.match(regexNumbers)) {
+        return true;
+    }
+    else {
+        x = x.substring(0, x.length - 1);
+        this.input_field.value = x;
+        return false;
+    }
+}
+
