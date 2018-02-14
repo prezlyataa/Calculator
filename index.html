@@ -22,41 +22,42 @@
     <div class="container">
         <div class="calc">
             <div class="field">
-                <input class="input_field" type="number">
+                <input id="input_field" class="input_field" type="text" placeholder="0">
             </div>
-            <div class="buttons">
+            <div class="buttons" id="buttons">
                 <div class="buttons_block">
-                    <button class="btn btn-clear">C</button>
+                    <button class="btn btn-clear" id="btn-clear">C</button>
                     <button class="btn">(</button>
                     <button class="btn">)</button>
                     <button class="btn">/</button>
                 </div>
                 <div class="buttons_block">
-                    <button class="btn">7</button>
-                    <button class="btn">8</button>
-                    <button class="btn">9</button>
+                    <button class="btn" id="seven">7</button>
+                    <button class="btn" id="eight">8</button>
+                    <button class="btn" id="nine">9</button>
                     <button class="btn">*</button>
                 </div>
                 <div class="buttons_block">
-                    <button class="btn">4</button>
-                    <button class="btn">5</button>
-                    <button class="btn">6</button>
+                    <button class="btn" id="four">4</button>
+                    <button class="btn" id="five">5</button>
+                    <button class="btn" id="six">6</button>
                     <button class="btn">-</button>
                 </div>
                 <div class="buttons_block">
-                    <button class="btn">1</button>
-                    <button class="btn">2</button>
-                    <button class="btn">3</button>
+                    <button class="btn" id="one">1</button>
+                    <button class="btn" id="two">2</button>
+                    <button class="btn" id="three">3</button>
                     <button class="btn">+</button>
                 </div>
                 <div class="buttons_block">
                     <button class="btn">0</button>
-                    <button class="btn">,</button>
-                    <button class="btn btn-equal">=</button>
+                    <button class="btn">.</button>
+                    <button class="btn btn-equal" id="btn-equal">=</button>
                 </div>
             </div>
         </div>
     </div>
-<script src="js/common.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/preloader.js"></script>
 </body>
 </html>

@@ -37,12 +37,6 @@ body {
     outline: none;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 .buttons_block {
     width: 100%;
     display: flex;
@@ -57,6 +51,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 3px;
     background-color: #f9f2ff;
     transition: all 0.3s;
+    color: #1e1e1e;
 }
 
 .btn:hover {
@@ -66,6 +61,7 @@ input[type=number]::-webkit-outer-spin-button {
 .btn:focus {
     outline: none;
 }
+
 
 .btn-equal {
     width: 199px;
