@@ -20,6 +20,9 @@ body {
     top: 50%;
     margin-left: -200px;
     margin-top: -150px;
+}
+
+.calc-content {
     border: 3px solid #a97dd9;
     border-radius: 5px;
 }
@@ -79,4 +82,16 @@ body {
 
 .btn-clear:hover {
     background-color: #ff726e;
+}
+
+.history_title {
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+}
+
+.history {
+    height: 50px;
+    background: #fff;
+    border-radius: 3px;
 }

@@ -4,7 +4,7 @@ var buttons = document.getElementById('buttons');
 var input_field = document.getElementById('input_field');
 var equal = document.getElementById('btn-equal');
 var clearBtn = document.getElementById('btn-clear');
-
+var history_field = document.getElementById('history_field');
 
 
 /*** Onload window active field ***/
@@ -49,7 +49,9 @@ buttons.onclick = function(e) {
 /*** function that execute values from field ***/
 
 function Equal() {
-    this.input_field.value = eval(this.input_field.value);
+    if(this.input_field.value !== '') {
+        this.input_field.value = eval(this.input_field.value);
+    }
 }
 
 equal.onclick = function() {
@@ -84,11 +86,14 @@ function validation() {
 
     if(x.match(regexSigns) || x.match(regexNumbers)) {
         return true;
-    }
-    else {
+    } else {
         x = x.substring(0, x.length - 1);
         this.input_field.value = x;
         return false;
     }
 }
 
+/*** function set value for history field ***/
+
+function setHistory() {
+}
