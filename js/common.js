@@ -4,7 +4,7 @@ var buttons = document.getElementById('buttons');
 var input_field = document.getElementById('input_field');
 var equal = document.getElementById('btn-equal');
 var clearBtn = document.getElementById('btn-clear');
-var history_field = document.getElementById('history_field');
+var history_field = document.getElementById('history');
 
 
 /*** Onload window active field ***/
@@ -19,6 +19,7 @@ window.onload = function () {
 
 function Clear() {
     this.input_field.value = '';
+    this.history_field.value = '';
 }
 
 clearBtn.onclick = function () {
@@ -34,6 +35,7 @@ function setValue(num){
         num = '';
     }
     this.input_field.value += num;
+    this.history_field.value += num;
 }
 
 buttons.onclick = function(e) {
@@ -77,7 +79,7 @@ document.onkeydown = function (e) {
 
 
 
-/*** validation input field only for numbers and operators' ***/
+/*** validation input field only for numbers and operators ***/
 
 function validation() {
     var x = this.input_field.value;
@@ -93,7 +95,33 @@ function validation() {
     }
 }
 
+
+
 /*** function set value for history field ***/
 
 function setHistory() {
+    this.history_field.value = this.input_field.value;
 }
+
+input_field.oninput = function() {
+    setHistory();
+};
+
+history_field.setAttribute('contenteditable', 'true');
+
+
+
+/*** execute history value ***/
+
+history_field.onkeydown = function(e) {
+    switch (e.key) {
+        case '=':
+            document.getElementById('input_field').value = eval(document.getElementById('history').value);
+            break;
+        case 'Enter':
+            document.getElementById('input_field').value = eval(document.getElementById('history').value);
+        default:
+            return;
+    }
+    e.preventDefault();
+};

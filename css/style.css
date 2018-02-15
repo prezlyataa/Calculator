@@ -19,7 +19,7 @@ body {
     left: 50%;
     top: 50%;
     margin-left: -200px;
-    margin-top: -150px;
+    margin-top: -200px;
 }
 
 .calc-content {
@@ -27,7 +27,7 @@ body {
     border-radius: 5px;
 }
 
-.input_field {
+.input_field, .history {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
@@ -36,7 +36,7 @@ body {
     font-family: 'Titillium Web', sans-serif;
 }
 
-.input_field:focus {
+.input_field:focus, .history:focus {
     outline: none;
 }
 
@@ -94,4 +94,5 @@ body {
     height: 50px;
     background: #fff;
     border-radius: 3px;
+    text-align: left;
 }
