@@ -104,10 +104,9 @@ function setHistory() {
 }
 
 input_field.oninput = function() {
+    validation();
     setHistory();
 };
-
-history_field.setAttribute('contenteditable', 'true');
 
 
 
