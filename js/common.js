@@ -42,7 +42,6 @@ buttons.onclick = function(e) {
     if(e.target.tagName==='BUTTON' && e.target.classList.contains('btn')) {
         var currentButton = e.target.innerHTML;
         setValue(currentButton);
-        console.log(currentButton);
     }
 };
 
@@ -79,24 +78,6 @@ document.onkeydown = function (e) {
 
 
 
-/*** validation input field only for numbers and operators ***/
-
-function validation() {
-    var x = this.input_field.value;
-    var regexNumbers = /[0-9]+$/;
-    var regexSigns = new RegExp(/[\+\-\/\*\(\)\.]+$/g);
-
-    if(x.match(regexSigns) || x.match(regexNumbers)) {
-        return true;
-    } else {
-        x = x.substring(0, x.length - 1);
-        this.input_field.value = x;
-        return false;
-    }
-}
-
-
-
 /*** function set value for history field ***/
 
 function setHistory() {
@@ -104,9 +85,28 @@ function setHistory() {
 }
 
 input_field.oninput = function() {
-    validation();
+    validation(input_field);
     setHistory();
 };
+
+history_field.oninput = function () {
+    validation(history_field);
+};
+
+
+/*** validation fields only for numbers and operators ***/
+
+function validation(field) {
+    var regexNumbers = /[0-9]+$/;
+    var regexSigns = new RegExp(/[\+\-\/\*\(\)\.]+$/g);
+
+    if(field.value.match(regexSigns) || field.value.match(regexNumbers)) {
+        return true;
+    } else {
+         field.value = field.value.substring(0, field.value.length - 1);
+         return false;
+     }
+}
 
 
 
