@@ -94,6 +94,7 @@ history_field.oninput = function () {
 };
 
 
+
 /*** validation fields only for numbers and operators ***/
 
 function validation(field) {
@@ -115,10 +116,10 @@ function validation(field) {
 history_field.onkeydown = function(e) {
     switch (e.key) {
         case '=':
-            document.getElementById('input_field').value = eval(document.getElementById('history').value);
+            input_field.value = eval(history_field.value);
             break;
         case 'Enter':
-            document.getElementById('input_field').value = eval(document.getElementById('history').value);
+            input_field.value = eval(history_field.value);
         default:
             return;
     }
