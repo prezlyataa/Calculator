@@ -5,6 +5,26 @@ var input_field = document.getElementById('input_field');
 var equal = document.getElementById('btn-equal');
 var clearBtn = document.getElementById('btn-clear');
 var history_field = document.getElementById('history');
+var sqrtbtn = document.getElementById('sqrt');
+
+
+
+/*** factory that create new methods ***/
+
+var MethodsFactory = function(method) {
+    this.method = method;
+    var input_field = document.getElementById('input_field');
+    this.execute = function() {
+        input_field.value =  this.method(eval(input_field.value));
+    }
+};
+
+var sqrt = new MethodsFactory(Math.sqrt);
+
+sqrtbtn.onclick = function() {
+    sqrt.execute();
+};
+
 
 
 /*** Onload window active field ***/
@@ -64,16 +84,9 @@ equal.onclick = function() {
 /*** Work with keyboard ***/
 
 document.onkeydown = function (e) {
-    switch (e.key) {
-        case '=':
-            Equal();
-            break;
-        case 'Enter':
-            Equal();
-        default:
-            return;
+    if(e.key === 'Enter' || e.key === '=') {
+        input_field.value = eval(history_field.value);
     }
-    e.preventDefault();
 };
 
 
@@ -114,14 +127,7 @@ function validation(field) {
 /*** execute history value ***/
 
 history_field.onkeydown = function(e) {
-    switch (e.key) {
-        case '=':
-            input_field.value = eval(history_field.value);
-            break;
-        case 'Enter':
-            input_field.value = eval(history_field.value);
-        default:
-            return;
+    if(e.key === 'Enter' || e.key === '=') {
+        input_field.value = eval(history_field.value);
     }
-    e.preventDefault();
 };
