@@ -5,7 +5,12 @@ var input_field = document.getElementById('input_field');
 var equal = document.getElementById('btn-equal');
 var clearBtn = document.getElementById('btn-clear');
 var history_field = document.getElementById('history');
-var sqrtbtn = document.getElementById('sqrt');
+var popup = document.getElementById('popup');
+var closeBtn = document.getElementById('btn-close');
+var cosBtn = document.getElementById('btn-cos');
+var sinBtn = document.getElementById('btn-sin');
+var sqrtBtn = document.getElementById('btn-sqrt');
+
 
 
 
@@ -19,18 +24,29 @@ var MethodsFactory = function(method) {
     }
 };
 
-var sqrt = new MethodsFactory(Math.sqrt);
+var sqrtMethod = new MethodsFactory(Math.sqrt);
+var cosMethod = new MethodsFactory(Math.cos);
+var sinMethod = new MethodsFactory(Math.sin);
 
-sqrtbtn.onclick = function() {
-    sqrt.execute();
+sqrtBtn.onclick = function() {
+    sqrtMethod.execute();
 };
+
+cosBtn.onclick = function() {
+    cosMethod.execute();
+};
+
+sinBtn.onclick = function() {
+    sinMethod.execute();
+};
+
 
 
 
 /*** Onload window active field ***/
 
 window.onload = function () {
-    this.input_field.focus();
+   this.input_field.focus();
 };
 
 
@@ -51,7 +67,7 @@ clearBtn.onclick = function () {
 /*** function set value from button to input ***/
 
 function setValue(num){
-    if(num === 'C' || num === '=') {
+    if(num === 'C' || num === '=' || num === 'cos' || num === 'sin' || num === '√') {
         num = '';
     }
     this.input_field.value += num;
@@ -117,9 +133,9 @@ function validation(field) {
     if(field.value.match(regexSigns) || field.value.match(regexNumbers)) {
         return true;
     } else {
-         field.value = field.value.substring(0, field.value.length - 1);
-         return false;
-     }
+        field.value = field.value.substring(0, field.value.length - 1);
+        return false;
+    }
 }
 
 
@@ -131,3 +147,24 @@ history_field.onkeydown = function(e) {
         input_field.value = eval(history_field.value);
     }
 };
+
+
+
+/*** show popup with tip ***/
+
+function showPopup() {
+    this.popup.style.opacity = '1';
+}
+
+function closePopup() {
+    this.popup.style.opacity = '0';
+}
+
+history_field.onclick = function() {
+    showPopup();
+};
+
+closeBtn.onclick = function() {
+    closePopup();
+};
+

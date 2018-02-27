@@ -30,6 +30,11 @@
                         <button class="btn btn-clear" id="btn-clear">C</button>
                         <button class="btn">(</button>
                         <button class="btn">)</button>
+                    </div>
+                    <div class="buttons_block">
+                        <button class="btn" id="btn-sqrt">√</button>
+                        <button class="btn" id="btn-cos">cos</button>
+                        <button class="btn" id="btn-sin">sin</button>
                         <button class="btn">/</button>
                     </div>
                     <div class="buttons_block">
@@ -58,7 +63,11 @@
                 </div>
             </div>
             <h3 class="history_title">History:</h3>
-            <input class="history" id="history"/>
+            <input class="history" id="history" onfocusout="closePopup()"/>
+            <div id="popup">
+                <p>If you want execute new value press on keyboard '=' or 'Enter'</p>
+                <span id="btn-close">×</span>
+            </div>
         </div>
     </div>
     <script src="js/common.js"></script>

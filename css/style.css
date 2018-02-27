@@ -76,6 +76,7 @@ body {
 }
 
 .btn-clear {
+    width: 199px;
     background-color: #f0605c;
     color: #fff;
 }
@@ -95,4 +96,52 @@ body {
     background: #fff;
     border-radius: 3px;
     text-align: left;
+}
+
+#popup {
+    opacity: 0;
+    transition: opacity 0.8s;
+    width: 300px;
+    margin: 20px auto;
+    background-color: #bae2eb;
+    position: relative;
+    border-radius: 5px;
+}
+
+#popup p {
+    text-align: center;
+    padding: 10px;
+}
+
+#popup:after, #popup:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+#popup:after {
+    border-bottom-color: #bae2eb;
+    border-width: 7px;
+    margin-left: -7px;
+}
+
+#popup:before {
+    border-bottom-color: #bae2eb;
+    border-width: 9px;
+    margin-left: -9px;
+}
+
+#btn-close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+}
+
+#btn-close:hover {
+    cursor: pointer;
 }
