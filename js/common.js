@@ -19,8 +19,10 @@ var sqrtBtn = document.getElementById('btn-sqrt');
 var MethodsFactory = function(method) {
     this.method = method;
     var input_field = document.getElementById('input_field');
+    var history_field = document.getElementById('history');
     this.execute = function() {
         input_field.value =  this.method(eval(input_field.value));
+        history_field.value = input_field.value;
     }
 };
 
